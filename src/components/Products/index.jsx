@@ -6,11 +6,15 @@ import { useNavigate } from "react-router-dom";
 
 function Products() {
   let navigate = useNavigate();
-  let { productsData, loading } = useContext(GlobalContext);
+  let { productsData, loading, error } = useContext(GlobalContext);
   //   console.log(productsData, loading);
   if (loading) {
     return <h1>loading data please wait..</h1>;
   }
+  if (error) {
+    return <div>{error}</div>;
+  }
+  
   return (
     <div className="container">
       <div className="header">
