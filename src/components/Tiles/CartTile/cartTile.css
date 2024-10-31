@@ -1,0 +1,90 @@
+/* CartTile.css */
+
+.cart-item-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  
+  .cart-item-info {
+    grid-column: span 2 / span 2;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .thumbnail-container {
+    width: 7rem;
+    height: 7rem;
+    padding: 0.25rem;
+    background-color: #a0aec0; /* bg-gray-400 */
+    border-radius: 0.125rem;
+    flex-shrink: 0;
+    border:1.5px solid black;
+
+  }
+  
+  @media (max-width: 640px) {
+    .thumbnail-container {
+      width: 5rem;
+    }
+  }
+  
+  .thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+
+  }
+  
+  .item-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1a202c; /* text-gray-900 */
+  }
+  
+  .remove-button {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 800;
+  }
+  
+  .price-container {
+    margin-left: auto;
+  }
+  
+  .item-price {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #1a202c; /* text-gray-900 */
+  }
+  
+  .quantity-info {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .quantity-buttons {
+    display: flex;
+    gap: 0.25rem;
+  }
+  
+  .decrement-button,
+  .increment-button {
+    border: 1px solid #000000;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .decrement-button:disabled {
+    opacity: 0.65;
+  }
+  
+  .separator {
+    border-color: #a0aec0; /* border-gray-500 */
+  }
+  
