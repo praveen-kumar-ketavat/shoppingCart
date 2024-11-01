@@ -22,16 +22,33 @@ function GlobalState({ children }) {
     }
   }, []);
 
+  // async function fetchData() {
+  //   let response = await fetch("https://dummyjson.com/products", {
+  //     method: "GET",
+  //   });
+  //   let result = await response.json();
+  //   if (result && result.products) {
+  //     setProductsData(result.products);
+  //     console.log(result.products);
+  //     setLoading(false);
+  //   }
+  // }
   async function fetchData() {
-    let response = await fetch("https://dummyjson.com/products", {
-      method: "GET",
-    });
-    let result = await response.json();
-    if (result && result.products) {
-      setProductsData(result.products);
-      setLoading(false);
+    try {
+      let response = await fetch("https://dummyjson.com/products");
+      let result = await response.json();
+      if (result && result.products) {
+        setProductsData(result.products);
+        console.log("Fetched products:", result.products);
+        setLoading(false);
+      } else {
+        console.log("No products found in response:", result);
+      }
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
     }
   }
+  
 
   function handleCart(cartProduct) {
     console.log(cartProduct);
