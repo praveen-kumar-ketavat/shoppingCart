@@ -7,7 +7,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/shoppingCart/" element={<Products />} />
+      <Route path="/" element={<Products />} />
+        <Route path="/shoppingCart" element={<Products />} />
         <Route path="/products" element={<Products />} />
         <Route path="/product-details/:id" element={<ProductItem />} />
         <Route path="/cart" element={<Cart />} />
