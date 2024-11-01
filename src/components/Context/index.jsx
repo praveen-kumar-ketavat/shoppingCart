@@ -7,9 +7,19 @@ function GlobalState({ children }) {
   let [productsData, setProductsData] = useState(null);
   let [productDetails, setProductDetails] = useState(null);
   let [cartItems, setCartItems] = useState([]);
+  // useEffect(() => {
+  //   fetchData();
+  //   setCartItems(JSON.parse(localStorage.getItem("cartItems") || []));
+  // }, []);
   useEffect(() => {
     fetchData();
-    setCartItems(JSON.parse(localStorage.getItem("cartItems") || []));
+    try {
+      const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+      setCartItems(storedCartItems || []); // Fallback to empty array if null
+    } catch (error) {
+      console.error("Failed to parse cart items from localStorage", error);
+      setCartItems([]); // Fallback to empty array in case of error
+    }
   }, []);
 
   async function fetchData() {
@@ -22,7 +32,6 @@ function GlobalState({ children }) {
       setLoading(false);
     }
   }
-  
 
   function handleCart(cartProduct) {
     console.log(cartProduct);
